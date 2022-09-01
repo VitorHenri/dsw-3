@@ -29,18 +29,26 @@ describe('Valida o comportamento de uma funcao', ()=>{
 });
 
 describe('Unit testing for StarWars API', ()=>{
-   it('Should return a not null list of planets',async()=>{
-        const response =await global.testRequest.get('/planets')
+   it('Should return a not null list of planets', async ()=>{
+        const response = await global.testRequest.get('/planets')
         expect(response).not.toBeNull()
    })
 
-   it('Should return a not null list of planets',async()=>{
-    const response =await global.testRequest.get('/planets')
+   it('Should return a not null list of planets', async ()=>{
+    const response = await global.testRequest.get('/planets')
     const body = response.body
     expect(body).toEqual({})
     })
 
-   it('Should return a valid list of planets',()=>{
-    console.log('TODO:Should return a valid list of planets')
+    it('Check status code equals 200', async ()=>{
+        const response = await global.testRequest.get('/planets')
+        const status = response.status
+        expect(status).toBe(200)
+        })
+
+   it('Should return a valid list of planets', async ()=>{
+        const response = await global.testRequest.get('/planets/')
+        const body = response.body
+        expect(body).toEqual([{}])
 })
 });
