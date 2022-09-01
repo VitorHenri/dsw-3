@@ -50,6 +50,6 @@ describe('Unit testing for StarWars API', ()=>{
         const response = await global.testRequest.get('/planets/')
         const body = response.body
         expect(body).toEqual([{}])
-        //
+        
 })
 });
